@@ -1,0 +1,17 @@
+[build-system]
+requires = ["maturin>=1.8,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "my_app"
+version = "0.1.0"
+description = "Custom pybevy wheel with additional Rust plugins"
+requires-python = ">=3.12"
+
+[tool.maturin]
+python-source = "python"
+module-name = "my_app.pybevy._pybevy"
+features = ["pyo3/extension-module"]
+
+# Copy the pybevy's python package into the wheel
+include = [{ path = "pybevy/**/*", from = "out-dir", to = "my_app/" }]
