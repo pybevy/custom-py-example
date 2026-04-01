@@ -9,8 +9,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = { version = "0.27", features = ["extension-module"] }
-pybevy = { version = "0.2", features = ["linux-display"] }
+pybevy = { git = "https://github.com/pybevy/pybevy.git", branch = "main" }
 bevy = { version = "0.18.1", default-features = false }
 
 [build-dependencies]
-cargo_metadata = "0.19"
+pybevy-build = { git = "https://github.com/pybevy/pybevy.git", branch = "main" }

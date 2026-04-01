@@ -3361,8 +3361,8 @@ name = "my-app"
 version = "0.1.0"
 dependencies = [
  "bevy",
- "cargo_metadata",
  "pybevy",
+ "pybevy-build",
  "pyo3",
 ]
 
@@ -4129,8 +4129,7 @@ checksum = "b5a041e753da8b807c9255f28de81879c78c876392ff2469cde94799b2896b9d"
 [[package]]
 name = "pybevy"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a28d213dbd2953906753ab2191a1c46b9bed3aa7a6ca91fe5ac339a08884f353"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "accesskit",
  "bevy",
@@ -4156,6 +4155,7 @@ dependencies = [
  "pybevy_math",
  "pybevy_mesh",
  "pybevy_pbr",
+ "pybevy_reload",
  "pybevy_render",
  "pybevy_scene",
  "pybevy_shader",
@@ -4180,10 +4180,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "pybevy-build"
+version = "0.2.1"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
+dependencies = [
+ "cargo_metadata",
+]
+
+[[package]]
 name = "pybevy_a11y"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ee6658b5e4e64b40e2d7c4be0467b91744ed471e60b80b63ec8616c7cb67f9c"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "accesskit",
  "bevy",
@@ -4195,8 +4202,7 @@ dependencies = [
 [[package]]
 name = "pybevy_animation"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5bacadd4d630cf8ac6a8dc0003b30854a756c3ec99c84d954829f43f6b316d00"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_core",
@@ -4209,8 +4215,7 @@ dependencies = [
 [[package]]
 name = "pybevy_audio"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "89bbca10b52b14a8672e87c26a98c44179d7b8ccbaadf2760e18e249f2971dfb"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",
@@ -4225,18 +4230,18 @@ dependencies = [
 [[package]]
 name = "pybevy_bytecodevm"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a5e798a711bf79baca0bda49676cd4ca167ab79cd704c4d87344f80eef6b0db5"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy_ecs",
  "pyo3",
+ "rayon",
+ "smallvec",
 ]
 
 [[package]]
 name = "pybevy_camera"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e0436633c3a2e37ca9d36d480efc8a4925ddd463f2ff8199363e79b78dd889b3"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",
@@ -4253,8 +4258,7 @@ dependencies = [
 [[package]]
 name = "pybevy_color"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2f4e3f1c2213980138d0067620aad4de882870af1a63fa831871fad7c5ac05b8"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_core",
@@ -4265,8 +4269,7 @@ dependencies = [
 [[package]]
 name = "pybevy_control"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "98c668e9ae945128484cce66b8f3c0ae398c9d00c9812dae9a50badc1f6264d2"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "axum",
  "base64",
@@ -4286,8 +4289,7 @@ dependencies = [
 [[package]]
 name = "pybevy_core"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9eba69e96320fdd5faa32418597bfbac25f7f6213ed382a57fcc369452188d8"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_macros",
@@ -4300,8 +4302,7 @@ dependencies = [
 [[package]]
 name = "pybevy_ecs"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a55520cc9826d0c499c2839c2c7bf12751ec49de29d48c1bc64a9535285ba6cc"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_core",
@@ -4312,8 +4313,7 @@ dependencies = [
 [[package]]
 name = "pybevy_gltf"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fbbccfd52d25fb4a40d2ec5bec52caef5a0ab71715eb49c7d5049c5638fa6859"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_core",
@@ -4326,8 +4326,7 @@ dependencies = [
 [[package]]
 name = "pybevy_image"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "82355bac5b52dcf540f3071c959761d4f6031bb52b4d64f11e3d40991e32af2b"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "image",
@@ -4343,8 +4342,7 @@ dependencies = [
 [[package]]
 name = "pybevy_input"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a3a8887d4ae41eb64f15e089c890b4897af54f14a318f75f7e7abeaed0a1168b"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_core",
@@ -4356,8 +4354,7 @@ dependencies = [
 [[package]]
 name = "pybevy_light"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "53164bc7cfb9c1a50989facdd9db76673c02971323fe93b1e72f1273fa445da8"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",
@@ -4372,8 +4369,7 @@ dependencies = [
 [[package]]
 name = "pybevy_macros"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f89ee67833ee487ba16bba4e91febcd670a41fa044c46769bd1dccd920554bb"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "proc-macro-crate",
  "proc-macro2",
@@ -4384,8 +4380,7 @@ dependencies = [
 [[package]]
 name = "pybevy_math"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "00d664b3aaec439e9fdf65170aefece226114ce1c8b4e909deadfb8f28ab58f3"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "bevy_math",
@@ -4397,8 +4392,7 @@ dependencies = [
 [[package]]
 name = "pybevy_mesh"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c749c00650a75107f9f41292c4361f03dc1d2d781e14722b7dacc2e6c9de50a6"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",
@@ -4413,8 +4407,7 @@ dependencies = [
 [[package]]
 name = "pybevy_pbr"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f299313ae065815ef0ea6484722974b5f6a33e41aa2c5ca5485b1e43cf0ec7d9"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",
@@ -4428,10 +4421,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "pybevy_reload"
+version = "0.2.1"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
+dependencies = [
+ "bevy",
+ "image",
+ "pybevy_control",
+ "pybevy_core",
+ "sysinfo",
+]
+
+[[package]]
 name = "pybevy_render"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2cf5d4873d1228b6b36d871c13364463ebd44839d3c8975e4a728135ce539550"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_color",
@@ -4448,8 +4452,7 @@ dependencies = [
 [[package]]
 name = "pybevy_scene"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "15f615aac3f6fd7229dd05c6c3d44169cc4f903ab39d9c26e83948d372b0d666"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_core",
@@ -4460,8 +4463,7 @@ dependencies = [
 [[package]]
 name = "pybevy_shader"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "be78d76b9c20e5e4e994577a23728f48bb8898065a19f051c8c37426420e96b6"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "naga",
@@ -4473,8 +4475,7 @@ dependencies = [
 [[package]]
 name = "pybevy_shader_types"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2936608807f3ba8c3e9650b084abe8eb2e0d50251b74f8cf096ac9a46254b88e"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
 ]
@@ -4482,8 +4483,7 @@ dependencies = [
 [[package]]
 name = "pybevy_sprite"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c715f9010e4260550da9aea127dec9a31bd23fcf8a0e140e0f86324d27363187"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",
@@ -4498,8 +4498,7 @@ dependencies = [
 [[package]]
 name = "pybevy_storage"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6a1c90eafb8289792a115764757735d923f28d3b2f705c1f80f78af1a0acbb3a"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pyo3",
@@ -4508,8 +4507,7 @@ dependencies = [
 [[package]]
 name = "pybevy_text"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "db200741fbd31d001ea5a15af1da5c66b572e4a2e0e5f0397d98faf4962bcd36"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",
@@ -4523,8 +4521,7 @@ dependencies = [
 [[package]]
 name = "pybevy_time"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "28b02bded545c7f5fd3b15bf680652c7ff55a1b2d010e9609f74dde1f13921c5"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_core",
@@ -4535,8 +4532,7 @@ dependencies = [
 [[package]]
 name = "pybevy_transform"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "66ee74bf313ba7c0c74da8751c2e21e4062986d45eac670ad9bc54f5deb96d9b"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",
@@ -4549,8 +4545,7 @@ dependencies = [
 [[package]]
 name = "pybevy_ui"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1dc2590af5ffdd0244b8bdd47bc1e4fafc655c419a8cf27dc9ab9ca4413065cd"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",
@@ -4565,8 +4560,7 @@ dependencies = [
 [[package]]
 name = "pybevy_wgpu"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4e53e859912244be87656530328834380a4fd325e72c9d830c8d58eed8bf69e2"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "pybevy_macros",
@@ -4576,8 +4570,7 @@ dependencies = [
 [[package]]
 name = "pybevy_window"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3832f7da130e32768406e7636cd7290223d4d6ef480f0ecfe1163f81f03aefae"
+source = "git+https://github.com/pybevy/pybevy.git?branch=main#7bb66d76dafe75c0c1fcf193308857c04dec78eb"
 dependencies = [
  "bevy",
  "numpy",

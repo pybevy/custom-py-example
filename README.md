@@ -35,6 +35,6 @@ if __name__ == "__main__":
 
 See `src/lib.rs` for the pattern: define a Bevy `Plugin`, wrap it in a `#[pyclass(extends = PyPlugin)]`, implement `PluginBridge`, and register both in the `_pybevy` module.
 
-## Known workarounds
+## Limitations
 
-- **`sys.modules` alias in build.rs** — a few pybevy files use absolute `import pybevy._pybevy` instead of relative imports. build.rs patches `__init__.py` to alias `pybevy` to `my_app.pybevy` in `sys.modules`. This can be removed if pybevy switches to relative imports upstream.
+- **`pybevy watch` does not work** — the `pybevy` CLI runs from a separate environment and can't find the `my_app` package. Use `python examples/scene_3d.py` directly instead. See [pybevy/pybevy#58](https://github.com/pybevy/pybevy/issues/58).
